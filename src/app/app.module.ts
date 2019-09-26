@@ -11,6 +11,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
+import {CommonModule} from '@angular/common';
+import {TreeModule} from 'primeng/tree';
+import {ToastModule} from 'primeng/toast';
+import {ButtonModule, CodeHighlighterModule, ContextMenuModule, OrganizationChartModule, TabViewModule} from 'primeng/primeng';
+import {OrganizationChartDemo} from './tree/tree';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {TreeDemo} from './filter-tree/filter';
+import {NodeService} from './services/NodeService';
 
 @NgModule({
   declarations: [
@@ -18,17 +27,33 @@ import { InMemoryDataService } from './in-memory-data.service';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroSearchComponent,
+    OrganizationChartDemo,
+    TreeDemo
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false })
+      InMemoryDataService, { dataEncapsulation: false }),
+    CommonModule,
+    FormsModule,
+    TreeModule,
+    ToastModule,
+    ButtonModule,
+    ContextMenuModule,
+    TabViewModule,
+    CodeHighlighterModule,
+    BrowserAnimationsModule,
+    OrganizationChartModule
   ],
-  providers: [],
+  providers: [
+    NodeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
